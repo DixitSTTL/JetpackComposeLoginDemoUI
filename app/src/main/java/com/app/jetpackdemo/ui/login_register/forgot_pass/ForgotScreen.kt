@@ -1,5 +1,10 @@
 package com.app.jetpackdemo.ui.login_register.forgot_pass
 
+import androidx.compose.animation.Animatable
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.repeatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -147,7 +153,14 @@ fun newBox(navController: NavHostController) {
 @Composable
 fun editText(str: String, drawable: Int, editInputType: EditInputType) {
     var mText by remember { mutableStateOf("") }
+    val color = remember { Animatable(Color.Black) }
+    var isAnimated by remember { mutableStateOf(true) }
 
+    // animate to green/red based on `button click`
+    LaunchedEffect(isAnimated) {
+        color.animateTo(if (isAnimated) Color.LightGray else Color.Red, animationSpec = infiniteRepeatable(
+            tween(2000),RepeatMode.Reverse))
+    }
     TextField(
         value = mText,
         onValueChange = {
@@ -162,7 +175,7 @@ fun editText(str: String, drawable: Int, editInputType: EditInputType) {
         label = {
             Text(
                 text = str,
-                color = Color.LightGray,
+                color = color.value,
                 fontWeight = FontWeight.Light,
                 modifier = Modifier
                     .fillMaxWidth()

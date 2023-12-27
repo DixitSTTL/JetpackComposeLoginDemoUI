@@ -32,6 +32,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -39,7 +40,7 @@ import com.app.jetpackdemo.R
 import com.app.jetpackdemo.ui.theme.JetpackDemoTheme
 
 @Composable
-fun OTPScreen(navController: NavHostController) {
+fun OTPScreen() {
 
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -126,15 +127,10 @@ fun OTPScreen(navController: NavHostController) {
                                 }
                                 Spacer(modifier = Modifier.width(8.dp))
                             }
-
-
                         }
                     }
                 )
-
             }
-
-
 
             Spacer(
                 modifier = Modifier
@@ -177,11 +173,11 @@ fun OTPScreen(navController: NavHostController) {
 
 
 
-//@Preview(showBackground = true)
+@Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     JetpackDemoTheme {
-
+        OTPScreen()
     }
 }
 
