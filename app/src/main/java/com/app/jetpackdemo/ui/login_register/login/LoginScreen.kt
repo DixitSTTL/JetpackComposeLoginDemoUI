@@ -43,7 +43,7 @@ import com.muratozturk.conversai.navigation.Screen
 
 
 @Composable
-fun LoginScreen(navController: NavHostController) {
+fun LoginScreen(navigateToRegister: () -> Unit, navigateToForgotPass: () -> Unit) {
 
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -55,104 +55,93 @@ fun LoginScreen(navController: NavHostController) {
             modifier = Modifier.align(alignment = Alignment.BottomStart)
         )
 
-        newBox(navController)
-
-
-    }
-
-
-}
-
-@Composable
-fun newBox(navController: NavHostController) {
-
-    Box(
-        modifier = Modifier
-            .padding(30.dp, 100.dp)
-            .fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth()
+        Box(
+            modifier = Modifier
+                .padding(30.dp, 100.dp)
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = "Hello",
-                color = Color.Black,
-                fontWeight = FontWeight.Bold,
-                fontSize = 45.sp
-            )
-            Text(
-                text = "Sign in to your account",
-                color = Color.Black,
-                fontWeight = FontWeight.Normal,
-                fontSize = 16.sp,
-                modifier = Modifier.padding(0.dp, 20.dp)
-            )
 
-            editText("Username", R.drawable.ic_profile, EditInputType.TEXT)
-            editText("Password", R.drawable.ic_lock, EditInputType.PASSWORD)
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = "Hello",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 45.sp
+                )
+                Text(
+                    text = "Sign in to your account",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 16.sp,
+                    modifier = Modifier.padding(0.dp, 20.dp)
+                )
 
+                editText("Username", R.drawable.ic_profile, EditInputType.TEXT)
+                editText("Password", R.drawable.ic_lock, EditInputType.PASSWORD)
+
+                Text(
+                    text = "Forgot  your password?",
+                    color = Color.LightGray,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 16.sp,
+                    modifier = Modifier
+                        .padding(0.dp, 16.dp)
+                        .align(alignment = Alignment.End)
+                        .clickable(onClick = navigateToForgotPass)
+
+                )
+
+                Row(
+                    modifier = Modifier.align(alignment = Alignment.End),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Sign in",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp,
+                        modifier = Modifier
+                            .padding(0.dp, 16.dp)
+                    )
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier
+                            .padding(10.dp, 16.dp, 0.dp, 16.dp)
+                    ) {
+
+                        Image(
+                            painter = painterResource(id = R.drawable.bg_gradient),
+                            contentDescription = ""
+                        )
+                        Image(
+                            painter = painterResource(id = R.drawable.ic_right_arrow),
+                            contentDescription = "",
+                            modifier = Modifier.padding(16.dp, 6.dp)
+                        )
+                    }
+                }
+
+
+            }
             Text(
-                text = "Forgot  your password?",
-                color = Color.LightGray,
+                text = "Don’t have an account? Create",
+                color = Color.Black,
                 fontWeight = FontWeight.Normal,
                 fontSize = 16.sp,
                 modifier = Modifier
-                    .padding(0.dp, 16.dp)
-                    .align(alignment = Alignment.End)
-                    .clickable {
-                        navController.navigate(Screen.Forgot_pass.route)
-                    }
+                    .padding(0.dp, 60.dp, 0.dp, 0.dp)
+                    .align(Alignment.BottomCenter)
+                    .clickable(onClick = navigateToRegister)
+
             )
-
-            Row(
-                modifier = Modifier.align(alignment = Alignment.End),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "Sign in",
-                    color = Color.Black,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 20.sp,
-                    modifier = Modifier
-                        .padding(0.dp, 16.dp)
-                )
-                Box(
-                    contentAlignment = Alignment.Center,
-                    modifier = Modifier
-                        .padding(10.dp, 16.dp, 0.dp, 16.dp)
-                ) {
-
-                    Image(
-                        painter = painterResource(id = R.drawable.bg_gradient),
-                        contentDescription = ""
-                    )
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_right_arrow),
-                        contentDescription = "",
-                        modifier = Modifier.padding(16.dp, 6.dp)
-                    )
-                }
-            }
-
-
         }
-        Text(
-            text = "Don’t have an account? Create",
-            color = Color.Black,
-            fontWeight = FontWeight.Normal,
-            fontSize = 16.sp,
-            modifier = Modifier
-                .padding(0.dp, 60.dp, 0.dp, 0.dp)
-                .align(Alignment.BottomCenter)
-                .clickable {
-                    navController.navigate(Screen.Register.route)
-                }
 
-        )
     }
+
 
 }
 
@@ -218,21 +207,20 @@ fun editText(str: String, drawable: Int, editInputType: EditInputType) {
             else -> {
                 VisualTransformation.None
             }
-        }
-    ,
-    colors = TextFieldDefaults.textFieldColors(
-        containerColor = Color.Transparent,
-        focusedIndicatorColor = Color.Transparent,
-        unfocusedIndicatorColor = Color.Transparent,
-        focusedTextColor = Color.Black,
-        unfocusedTextColor = Color.Black
-    ),
-    modifier = Modifier
-        .padding(horizontal = 0.dp, vertical = 12.dp)
-        .fillMaxWidth()
-        .shadow(12.dp, shape = CircleShape)
-        .clip(CircleShape)
-        .background(color = colors.surface)
+        },
+        colors = TextFieldDefaults.textFieldColors(
+            containerColor = Color.Transparent,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            focusedTextColor = Color.Black,
+            unfocusedTextColor = Color.Black
+        ),
+        modifier = Modifier
+            .padding(horizontal = 0.dp, vertical = 12.dp)
+            .fillMaxWidth()
+            .shadow(12.dp, shape = CircleShape)
+            .clip(CircleShape)
+            .background(color = colors.surface)
     )
 
 
