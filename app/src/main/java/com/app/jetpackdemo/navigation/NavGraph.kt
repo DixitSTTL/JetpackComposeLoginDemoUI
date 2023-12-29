@@ -18,16 +18,15 @@ import com.app.jetpackdemo.ui.login_register.login.LoginScreen2
 import com.app.jetpackdemo.ui.login_register.register.RegisterScreen
 import com.app.jetpackdemo.ui.login_register2.register.RegisterScreen2
 import com.app.jetpackdemo.ui.login_register2.welcome.WelcomeScreen
+import com.app.jetpackdemo.ui.login_register3.enter_otp.OtpScreen3
+import com.app.jetpackdemo.ui.login_register3.login.ForgotPassScreen3
 import com.app.jetpackdemo.ui.login_register3.login.LoginScreen3
 import com.app.jetpackdemo.ui.login_register3.register.RegisterScreen3
 import com.app.jetpackdemo.ui.login_register3.welcome.WelcomeScreen3
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.muratozturk.conversai.common.Constants.TRANSITION_ANIMATION_DURATION
 
-
-@OptIn(ExperimentalMaterialNavigationApi::class)
 @ExperimentalAnimationApi
 @Composable
 fun NavGraph(
@@ -87,7 +86,6 @@ fun NavGraph(
 
         //Login 2
         composable(route = Screen.Welcome.route) {
-
             WelcomeScreen(
                 navigateToLogin = {
                     navController.navigate(Screen.Login2.route)
@@ -117,7 +115,6 @@ fun NavGraph(
 
         //Login 3
         composable(route = Screen.Welcome3.route) {
-
             WelcomeScreen3(
                 navigateToLogin = {
                     navController.navigate(Screen.Login3.route)
@@ -132,18 +129,44 @@ fun NavGraph(
         }
 
         composable(route = Screen.Login3.route) {
-            LoginScreen3 (
-//                navController.popBackStack()
+            LoginScreen3(
+                navigateBack = {
+                    navController.popBackStack()
+
+                },
+                navigateForgotPass = {
+                    navController.navigate(Screen.Forgot_pass3.route)
+
+                },
             )
         }
 
         composable(route = Screen.Register3.route) {
-            RegisterScreen3 (
-//                navController.popBackStack()
+            RegisterScreen3 {
+                navController.popBackStack()
 
+            }
+        }
+
+        composable(route = Screen.Forgot_pass3.route) {
+            ForgotPassScreen3(
+                navigateBack = {
+                    navController.popBackStack()
+
+                },
+                navigateVerify = {
+                    navController.navigate(Screen.OTP3.route)
+
+                },
             )
         }
 
+        composable(route = Screen.OTP3.route) {
+            OtpScreen3 {
+                navController.popBackStack()
+
+            }
+        }
 
     }
 

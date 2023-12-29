@@ -37,7 +37,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.jetpackdemo.R
@@ -47,6 +46,7 @@ import com.app.jetpackdemo.ui.theme.MyPurple
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegisterScreen2(navigateBack: () -> Unit) {
+
     var mNameText by remember { mutableStateOf("") }
     var mEmailText by remember { mutableStateOf("") }
     var mPassText by remember { mutableStateOf("") }
@@ -94,9 +94,7 @@ fun RegisterScreen2(navigateBack: () -> Unit) {
                     fontWeight = FontWeight(600)
                 )
 
-
                 Spacer(modifier = Modifier.height(16.dp))
-
 
                 TextField(
                     textStyle = TextStyle(
@@ -125,8 +123,6 @@ fun RegisterScreen2(navigateBack: () -> Unit) {
                     ),
                     modifier = Modifier.fillMaxWidth()
                 )
-
-
 
 
                 TextField(
@@ -168,9 +164,6 @@ fun RegisterScreen2(navigateBack: () -> Unit) {
                         .padding(0.dp, 12.dp, 0.dp, 0.dp)
 
                 )
-
-
-
 
                 TextField(
                     textStyle = TextStyle(
@@ -239,13 +232,10 @@ fun RegisterScreen2(navigateBack: () -> Unit) {
 
                 )
 
-
             }
 
         }
 
-
     }
-
 
 }

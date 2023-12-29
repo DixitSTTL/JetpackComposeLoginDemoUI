@@ -3,7 +3,6 @@ package com.app.jetpackdemo.ui.login_register.forgot_pass
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.repeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -34,7 +33,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -55,7 +53,11 @@ fun ForgotScreen(navController: NavHostController) {
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        Image(painter = painterResource(id = R.drawable.bg_top), contentDescription = "top")
+        Image(
+            painter = painterResource(id = R.drawable.bg_top),
+            contentDescription = "top"
+        )
+
         Image(
             painter = painterResource(id = R.drawable.bg_bottom),
             contentDescription = "bottom",
@@ -86,12 +88,14 @@ fun newBox(navController: NavHostController) {
                     .fillMaxWidth()
                     .height(50.dp)
             )
+
             Text(
                 text = "Forgot Password",
                 color = Color.Black,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 32.sp,
             )
+
             Spacer(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -139,9 +143,7 @@ fun newBox(navController: NavHostController) {
             }
 
 
-
         }
-
 
 
     }
@@ -158,8 +160,11 @@ fun editText(str: String, drawable: Int, editInputType: EditInputType) {
 
     // animate to green/red based on `button click`
     LaunchedEffect(isAnimated) {
-        color.animateTo(if (isAnimated) Color.LightGray else Color.Red, animationSpec = infiniteRepeatable(
-            tween(2000),RepeatMode.Reverse))
+        color.animateTo(
+            if (isAnimated) Color.LightGray else Color.Red, animationSpec = infiniteRepeatable(
+                tween(2000), RepeatMode.Reverse
+            )
+        )
     }
     TextField(
         value = mText,
@@ -185,7 +190,7 @@ fun editText(str: String, drawable: Int, editInputType: EditInputType) {
         singleLine = true,
         keyboardOptions = KeyboardOptions.Default.copy(
             imeAction = ImeAction.Done,
-            keyboardType =  when (editInputType) {
+            keyboardType = when (editInputType) {
                 EditInputType.EMAIL -> {
                     KeyboardType.Email
                 }
@@ -207,7 +212,7 @@ fun editText(str: String, drawable: Int, editInputType: EditInputType) {
                 }
             }
         ),
-        visualTransformation =when (editInputType) {
+        visualTransformation = when (editInputType) {
             EditInputType.PASSWORD -> {
                 PasswordVisualTransformation()
             }

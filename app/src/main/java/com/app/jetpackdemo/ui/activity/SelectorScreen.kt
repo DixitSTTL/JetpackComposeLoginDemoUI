@@ -20,17 +20,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.jetpackdemo.R
 import com.app.jetpackdemo.ui.theme.MyBlack
-import com.app.jetpackdemo.ui.theme.MyGreen
 import com.app.jetpackdemo.ui.theme.MyFoodOrange
 
 @Composable
@@ -52,13 +49,11 @@ fun SelectorScreen(
         Text(
             text = "Login",
             color = Color.White,
-            fontFamily = FontFamily(Font(R.font.montserrat_medium)),
             fontWeight = FontWeight(600),
             fontSize = 20.sp,
 
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable(onClick = navigateToLogin1)
                 .clip(shape = RoundedCornerShape(50))
                 .background(
                     brush = Brush.linearGradient(
@@ -68,6 +63,7 @@ fun SelectorScreen(
                         )
                     )
                 )
+                .clickable(onClick = navigateToLogin1)
                 .padding(vertical = 30.dp),
             textAlign = TextAlign.Center
         )
@@ -75,7 +71,8 @@ fun SelectorScreen(
 
         Spacer(modifier = Modifier.height(26.dp))
 
-        Button(shape = RoundedCornerShape(size = 6.dp),
+        Button(
+            shape = RoundedCornerShape(size = 6.dp),
             colors = ButtonDefaults.buttonColors(containerColor = MyBlack),
             onClick = navigateToLogin2,
             modifier = Modifier
@@ -94,7 +91,8 @@ fun SelectorScreen(
 
         Spacer(modifier = Modifier.height(26.dp))
 
-        Button(shape = RoundedCornerShape(50),
+        Button(
+            shape = RoundedCornerShape(50),
             colors = ButtonDefaults.buttonColors(containerColor = MyFoodOrange),
             onClick = navigateToLogin3,
             modifier = Modifier
@@ -105,7 +103,7 @@ fun SelectorScreen(
                     text = "Login",
                     color = Color.White,
                     fontSize = 20.sp,
-                    fontFamily = FontFamily(Font(R.font.montserrat_medium)),
+                    fontFamily = FontFamily(Font(R.font.poppins_medium)),
                     fontWeight = FontWeight(600)
                 )
             })

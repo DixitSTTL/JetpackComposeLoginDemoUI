@@ -15,7 +15,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,7 +35,6 @@ fun WelcomeScreen(
     navigateToLogin: () -> Unit, navigateToRegister: () -> Unit
 ) {
 
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -50,10 +48,13 @@ fun WelcomeScreen(
             painter = painterResource(id = R.drawable.ic_ill), contentDescription = ""
 
         )
+
         Spacer(modifier = Modifier.height(24.dp))
+
         Column(
             modifier = Modifier.padding(horizontal = 46.dp),
         ) {
+
             Text(
                 text = "We are here",
                 color = MyBlack,
@@ -72,6 +73,7 @@ fun WelcomeScreen(
                 fontWeight = FontWeight(400),
 
                 )
+
             Spacer(modifier = Modifier.height(36.dp))
 
             Row(
@@ -79,6 +81,7 @@ fun WelcomeScreen(
                     width = 2.dp, color = MyBlack, shape = RoundedCornerShape(size = 6.dp)
                 )
             ) {
+
                 Button(
                     shape = RoundedCornerShape(size = 6.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = MyBlack),
@@ -125,8 +128,6 @@ fun WelcomeScreen(
             )
         }
 
-
     }
-
 
 }

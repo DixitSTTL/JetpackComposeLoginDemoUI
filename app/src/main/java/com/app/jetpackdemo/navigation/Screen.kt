@@ -11,7 +11,6 @@ sealed class Screen(val route: String) {
     object OTP : Screen("otp_screen")
 
 
-
     //Login2
     object Welcome : Screen("welcome_screen")
     object Login2 : Screen("login_screen2")
@@ -22,6 +21,8 @@ sealed class Screen(val route: String) {
     object Welcome3 : Screen("welcome_screen3")
     object Login3 : Screen("login_screen3")
     object Register3 : Screen("register_screen3")
+    object Forgot_pass3 : Screen("forgot_pass_screen3")
+    object OTP3 : Screen("otp_screen3")
 
 
 }

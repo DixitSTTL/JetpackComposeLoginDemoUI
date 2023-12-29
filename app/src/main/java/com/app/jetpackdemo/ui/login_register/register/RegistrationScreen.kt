@@ -40,30 +40,29 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.app.jetpackdemo.R
 import com.app.jetpackdemo.common.EditInputType
 import com.app.jetpackdemo.ui.theme.JetpackDemoTheme
 
 @Composable
-fun RegisterScreen(navController: NavHostController) {
-
+fun RegisterScreen() {
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        Image(painter = painterResource(id = R.drawable.bg_top), contentDescription = "top")
+        Image(
+            painter = painterResource(id = R.drawable.bg_top),
+            contentDescription = "top"
+        )
+
         Image(
             painter = painterResource(id = R.drawable.bg_bottom),
             contentDescription = "bottom",
             modifier = Modifier.align(alignment = Alignment.BottomStart)
         )
 
-
         newBox()
 
-
     }
-
 
 }
 
@@ -87,6 +86,7 @@ fun newBox() {
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 32.sp,
             )
+
             Spacer(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -94,10 +94,12 @@ fun newBox() {
             )
 
             editText("Username", R.drawable.ic_profile, EditInputType.TEXT)
-            editText("Password", R.drawable.ic_lock, EditInputType.PASSWORD)
-            editText("E-mail", R.drawable.ic_email, EditInputType.EMAIL)
-            editText("Mobile", R.drawable.ic_mobile, EditInputType.MOBILE)
 
+            editText("Password", R.drawable.ic_lock, EditInputType.PASSWORD)
+
+            editText("E-mail", R.drawable.ic_email, EditInputType.EMAIL)
+
+            editText("Mobile", R.drawable.ic_mobile, EditInputType.MOBILE)
 
             Spacer(
                 modifier = Modifier
@@ -164,6 +166,7 @@ fun newBox() {
                     modifier = Modifier.weight(1f),
                     contentAlignment = Alignment.Center
                 ) {
+
                     Card(
                         shape = CircleShape,
                         modifier = Modifier
@@ -194,6 +197,7 @@ fun newBox() {
                     }
 
                 }
+
                 Box(
                     modifier = Modifier.weight(1f),
                     contentAlignment = Alignment.Center
@@ -228,10 +232,12 @@ fun newBox() {
 
                     }
                 }
+
                 Box(
                     modifier = Modifier.weight(1f),
                     contentAlignment = Alignment.Center,
                 ) {
+
                     Card(
                         shape = CircleShape,
                         modifier = Modifier
@@ -264,7 +270,6 @@ fun newBox() {
             }
 
         }
-
 
     }
 
@@ -300,7 +305,7 @@ fun editText(str: String, drawable: Int, editInputType: EditInputType) {
         singleLine = true,
         keyboardOptions = KeyboardOptions.Default.copy(
             imeAction = ImeAction.Done,
-            keyboardType =  when (editInputType) {
+            keyboardType = when (editInputType) {
                 EditInputType.EMAIL -> {
                     KeyboardType.Email
                 }
@@ -322,7 +327,7 @@ fun editText(str: String, drawable: Int, editInputType: EditInputType) {
                 }
             }
         ),
-        visualTransformation =when (editInputType) {
+        visualTransformation = when (editInputType) {
             EditInputType.PASSWORD -> {
                 PasswordVisualTransformation()
             }
@@ -346,7 +351,6 @@ fun editText(str: String, drawable: Int, editInputType: EditInputType) {
             .clip(CircleShape)
             .background(color = colors.surface),
     )
-
 
 }
 

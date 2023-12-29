@@ -3,7 +3,6 @@ package com.app.jetpackdemo.ui.login_register3.welcome
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -38,29 +37,33 @@ fun WelcomeScreen3(navigateToLogin: () -> Unit, navigateToRegister: () -> Unit) 
             .fillMaxSize()
             .background(color = MyFoodGreen)
     ) {
+
         Image(
             painter = painterResource(id = R.drawable.ic_pattern), contentDescription = ""
         )
+
         Box(
             Modifier
                 .fillMaxSize()
                 .padding(vertical = 30.dp)
         ) {
-        Image(
-            contentScale = ContentScale.Crop,
-            painter = painterResource(id = R.drawable.ic_ill5),
-            contentDescription ="",
-            modifier = Modifier.fillMaxSize())
+
+            Image(
+                contentScale = ContentScale.Crop,
+                painter = painterResource(id = R.drawable.ic_ill5),
+                contentDescription = "",
+                modifier = Modifier.fillMaxSize()
+            )
 
             Text(
-                text = "Donut worry, be happy and eat more donuts!",
+                text = "Donut worry,\nbe happy and eat more donuts!",
                 style = TextStyle(
                     fontSize = 36.sp,
                     lineHeight = 44.sp,
                     fontFamily = FontFamily(Font(R.font.poppins_medium)),
                     fontWeight = FontWeight(700),
                     color = Color.White,
-                    ),
+                ),
                 modifier = Modifier.padding(horizontal = 20.dp, vertical = 20.dp)
             )
 
@@ -89,10 +92,11 @@ fun WelcomeScreen3(navigateToLogin: () -> Unit, navigateToRegister: () -> Unit) 
                         fontSize = 16.sp,
                         fontFamily = FontFamily(Font(R.font.montserrat_medium)),
                         fontWeight = FontWeight(600),
-                                modifier = Modifier
+                        modifier = Modifier
                             .padding(vertical = 8.dp)
                     )
                 }
+
                 Spacer(modifier = Modifier.width(10.dp))
 
                 Button(
@@ -112,11 +116,7 @@ fun WelcomeScreen3(navigateToLogin: () -> Unit, navigateToRegister: () -> Unit) 
                             .padding(vertical = 8.dp)
                     )
                 }
-
             }
         }
-
-
     }
-
 }

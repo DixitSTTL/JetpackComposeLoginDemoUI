@@ -37,7 +37,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.jetpackdemo.R
@@ -47,6 +46,7 @@ import com.app.jetpackdemo.ui.theme.MyPink
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen2(navigateBack: () -> Unit) {
+
     var mEmailText by remember { mutableStateOf("") }
     var mPassText by remember { mutableStateOf("") }
 
@@ -75,7 +75,7 @@ fun LoginScreen2(navigateBack: () -> Unit) {
                     painter = painterResource(id = R.drawable.ic_close),
                     contentDescription = "bottom",
                     alignment = Alignment.TopEnd,
-                    modifier = Modifier.clickable(onClick=navigateBack)
+                    modifier = Modifier.clickable(onClick = navigateBack)
 
                 )
             }
@@ -105,7 +105,6 @@ fun LoginScreen2(navigateBack: () -> Unit) {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-
                 TextField(
                     textStyle = TextStyle(
                         fontSize = 22.sp, fontFamily = FontFamily(Font(R.font.montserrat_medium))
@@ -127,7 +126,8 @@ fun LoginScreen2(navigateBack: () -> Unit) {
                             fontFamily = FontFamily(Font(R.font.montserrat_light)),
                         )
                     },
-                    singleLine = true, keyboardOptions = KeyboardOptions.Default.copy(
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions.Default.copy(
                         imeAction = ImeAction.Done, keyboardType = KeyboardType.Email
                     ),
                     colors = TextFieldDefaults.textFieldColors(
@@ -183,7 +183,8 @@ fun LoginScreen2(navigateBack: () -> Unit) {
 
                 Spacer(modifier = Modifier.height(30.dp))
 
-                Button(shape = RoundedCornerShape(size = 6.dp),
+                Button(
+                    shape = RoundedCornerShape(size = 6.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = MyBlack),
                     onClick = { },
                     modifier = Modifier.fillMaxWidth(),
@@ -207,20 +208,14 @@ fun LoginScreen2(navigateBack: () -> Unit) {
 
                 )
 
-
             }
 
         }
 
-
     }
 
-
 }
 
-@Composable
-fun previewFun() {
 
-}
 
 

@@ -35,20 +35,24 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.app.jetpackdemo.R
 import com.app.jetpackdemo.common.EditInputType
 import com.app.jetpackdemo.ui.theme.JetpackDemoTheme
-import com.muratozturk.conversai.navigation.Screen
 
 
 @Composable
 fun LoginScreen(navigateToRegister: () -> Unit, navigateToForgotPass: () -> Unit) {
 
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ) {
 
-        Image(painter = painterResource(id = R.drawable.bg_top), contentDescription = "top")
+        Image(
+            painter = painterResource(id = R.drawable.bg_top),
+            contentDescription = "top"
+        )
+
         Image(
             painter = painterResource(id = R.drawable.bg_bottom),
             contentDescription = "bottom",
@@ -81,6 +85,7 @@ fun LoginScreen(navigateToRegister: () -> Unit, navigateToForgotPass: () -> Unit
                 )
 
                 editText("Username", R.drawable.ic_profile, EditInputType.TEXT)
+
                 editText("Password", R.drawable.ic_lock, EditInputType.PASSWORD)
 
                 Text(
@@ -169,7 +174,6 @@ fun editText(str: String, drawable: Int, editInputType: EditInputType) {
                 fontWeight = FontWeight.Light,
                 modifier = Modifier
                     .fillMaxWidth()
-
             )
         },
         singleLine = true,

@@ -35,7 +35,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.app.jetpackdemo.R
 import com.app.jetpackdemo.ui.theme.JetpackDemoTheme
 
@@ -45,7 +44,11 @@ fun OTPScreen() {
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        Image(painter = painterResource(id = R.drawable.bg_top), contentDescription = "top")
+        Image(
+            painter = painterResource(id = R.drawable.bg_top),
+            contentDescription = "top"
+        )
+
         Image(
             painter = painterResource(id = R.drawable.bg_bottom),
             contentDescription = "bottom",
@@ -59,7 +62,8 @@ fun OTPScreen() {
         ) {
 
             Column(
-                horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Spacer(
                     modifier = Modifier
@@ -170,8 +174,6 @@ fun OTPScreen() {
     }
 
 }
-
-
 
 @Preview(showBackground = true)
 @Composable
